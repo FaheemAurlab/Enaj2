@@ -10,6 +10,8 @@ import {
   DrawerItem,
 } from '@react-navigation/drawer';
 
+import Icon from 'react-native-ionicons';
+
 const Drawer = createDrawerNavigator();
 
 const CustomDrawer = props => {
@@ -59,6 +61,14 @@ const CustomDrawer = props => {
 
         <DrawerItem
           label="Close Menu"
+          icon={({focused, color, size}) => (
+            <Icon
+              name="md-close"
+              size={23}
+              color={focused ? '#7cc' : 'black'}
+              style={{marginRight: -15}}
+            />
+          )}
           onPress={() => props.navigation.closeDrawer()}
         />
         <DrawerItemList {...props} />
@@ -71,6 +81,9 @@ const DrawerScreens = props => {
   return (
     <Drawer.Navigator
       screenOptions={{
+        drawerActiveBackgroundColor: '#e6004c',
+        drawerInactiveBackgroundColor: '#FFFFFF',
+        drawerActiveTintColor: 'white',
         drawerStyle: {
           backgroundColor: 'white',
           width: 250,
@@ -95,7 +108,66 @@ const DrawerScreens = props => {
         name="Dashboard"
         options={{
           drawerLabel: 'OverView',
-          title: 'OverView',
+          title: 'Menu',
+          drawerIcon: ({focused}) => (
+            <Icon
+              name="home"
+              size={23}
+              color={focused ? 'white' : 'grey'}
+              style={{marginRight: -15}}
+            />
+          ),
+        }}
+        component={Dashboard}
+      />
+
+      <Drawer.Screen
+        name="DeviceControl"
+        options={{
+          drawerLabel: 'Field device Controls',
+          title: 'Field device Controls',
+          drawerIcon: ({focused}) => (
+            <Icon
+              name="eye"
+              size={23}
+              color={focused ? 'white' : 'grey'}
+              style={{marginRight: -15}}
+            />
+          ),
+        }}
+        component={Dashboard}
+      />
+
+      <Drawer.Screen
+        name="API settings"
+        options={{
+          drawerLabel: 'API settings',
+          title: 'API settings',
+          drawerIcon: ({focused}) => (
+            <Icon
+              name="ios-settings"
+              size={23}
+              color={focused ? 'white' : 'grey'}
+              style={{marginRight: -15}}
+            />
+          ),
+        }}
+        component={Dashboard}
+      />
+
+      <Drawer.Screen
+        name="Profile settings"
+        options={{
+          drawerLabel: 'Profile settings',
+          title: 'Profile settings',
+          drawerIcon: ({focused}) => (
+            <Icon
+              name="settings"
+              size={23}
+              color={focused ? 'white' : 'grey'}
+              style={{marginRight: -15}}
+            />
+          ),
         }}
         component={Dashboard}
       />
