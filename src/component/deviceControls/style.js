@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginBottom: 50,
     padding: 10,
+    paddingTop: 30,
   },
 
   fdcTxt: {
@@ -32,6 +33,15 @@ const styles = StyleSheet.create({
     color: 'black',
     alignSelf: 'center',
     marginTop: 10,
+  },
+
+  controlContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    marginBottom: 10,
+    padding: 20,
   },
 });
 

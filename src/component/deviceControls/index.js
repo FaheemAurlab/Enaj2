@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Text, Image, Switch} from 'react-native';
+import {View, Text, Image} from 'react-native';
+import Switch from './toggle-switch';
 import styles from './style';
 const Controls = () => {
   return (
@@ -19,6 +20,15 @@ const Controls = () => {
 
         <View>
           <Text style={styles.ControlTxt}>Control Switches</Text>
+        </View>
+        <View style={styles.controlContainer}>
+          <Switch name="Led's" />
+          <Switch name="Pump" />
+        </View>
+
+        <View style={styles.controlContainer}>
+          <Switch name="Supply" />
+          <Switch name="Fan" />
         </View>
       </View>
     </View>
