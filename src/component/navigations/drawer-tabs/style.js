@@ -36,6 +36,13 @@ const styles = StyleSheet.create({
     width: 15,
     height: 15,
   },
+  dashbordTxt: {
+    color: 'black',
+    fontSize: 16,
+    paddingLeft: 15,
+    paddingBottom: 15,
+    fontWeight: '400',
+  },
 });
 
 export default styles;

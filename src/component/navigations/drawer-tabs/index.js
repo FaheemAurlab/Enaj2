@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, View, Image} from 'react-native';
 import Dashboard from '../../dashboard';
+import Controls from '../../deviceControls';
 import styles from './style';
 
 import {
@@ -47,16 +48,7 @@ const CustomDrawer = props => {
         </View>
 
         <View>
-          <Text
-            style={{
-              color: 'black',
-              fontSize: 16,
-              paddingLeft: 15,
-              paddingBottom: 15,
-              fontWeight: '400',
-            }}>
-            Dashboard
-          </Text>
+          <Text style={styles.dashbordTxt}>Dashboard</Text>
         </View>
 
         <DrawerItem
@@ -135,7 +127,7 @@ const DrawerScreens = props => {
             />
           ),
         }}
-        component={Dashboard}
+        component={Controls}
       />
 
       <Drawer.Screen

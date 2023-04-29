@@ -1,8 +1,10 @@
 import React from 'react';
-import {View, Text, ScrollView, Image, Button} from 'react-native';
+import {View, Text, ScrollView, Image, LogBox} from 'react-native';
 import Temperature from './valueHolder';
 
 import styles from './style';
+
+LogBox.ignoreAllLogs();
 
 const Dashboard = () => {
   return (
