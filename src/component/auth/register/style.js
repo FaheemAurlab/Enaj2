@@ -78,8 +78,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
+    // backgroundColor: 'red',
     height: 35,
-    marginTop: 150,
+    marginTop: 120,
   },
   footerTxt: {
     color: 'black',

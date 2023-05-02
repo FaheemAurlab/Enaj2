@@ -7,17 +7,16 @@ import {
   Keyboard,
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
+  ScrollView,
 } from 'react-native';
 import styles from './style';
 const Login = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={styles.outerContainer}>
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={styles.innerContainer}>
+    <View style={styles.outerContainer}>
+      <View style={styles.innerContainer}>
+        <ScrollView>
           <View>
             <Text style={styles.MemberText}>Member Login</Text>
           </View>
@@ -51,9 +50,15 @@ const Login = ({navigation}) => {
             <Text style={styles.forgot}>Forgot </Text>
             <Text style={styles.userAndPass}>Username / Password?</Text>
           </View>
-        </View>
-      </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
+
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Register')}
+            style={styles.footerCont}>
+            <Text style={styles.footerTxt}>Create Your Account </Text>
+          </TouchableOpacity>
+        </ScrollView>
+      </View>
+    </View>
   );
 };
 
