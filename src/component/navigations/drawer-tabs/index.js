@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {Text, View, Image} from 'react-native';
 import Dashboard from '../../dashboard';
 import Controls from '../../deviceControls';
+import Logout from '../../logout';
 import styles from './style';
 
 import {
@@ -168,7 +169,7 @@ const DrawerScreens = props => {
             />
           ),
         }}
-        component={Dashboard}
+        component={Logout}
       />
     </Drawer.Navigator>
   );
