@@ -7,6 +7,7 @@ import {
   ScrollView,
   Alert,
 } from 'react-native';
+import ToastMessage from '../../ToastMessage';
 
 import {firebaseAuth} from '../../../../environment/config';
 import {db} from '../../../../environment/config';
@@ -17,31 +18,39 @@ const Register = ({navigation}) => {
   const [name, setName] = useState('');
 
   function registerUser(email, pass) {
-    firebaseAuth
-      .createUserWithEmailAndPassword(email, pass)
-      .then(response => {
-        const uid = response.user.uid;
-        console.log(uid);
-        db.ref('users')
-          .child(`${uid}`)
-          .set({
-            Information: {
-              Email: email,
-              Password: pass,
-              Name: name,
-            },
-          });
-        Alert.alert('User Auth', 'User Register Sucessfully', [
-          {text: 'OK', onPress: () => navigation.navigate('Login')},
-        ]);
-      })
-      .catch(error => {
-        if (error.code === 'auth/email-already-in-use') {
-          Alert.alert('Email address is already in use');
-        } else {
-          console.log(error);
-        }
-      });
+    if (!email) {
+      ToastMessage('Email should not be empty');
+    } else if (!pass) {
+      ToastMessage('Password should not be empty');
+    } else if (!name) {
+      ToastMessage('Name should not be empty');
+    } else {
+      firebaseAuth
+        .createUserWithEmailAndPassword(email, pass)
+        .then(response => {
+          const uid = response.user.uid;
+          console.log(uid);
+          db.ref('users')
+            .child(`${uid}`)
+            .set({
+              Information: {
+                Email: email,
+                Password: pass,
+                Name: name,
+              },
+            });
+          Alert.alert('User Auth', 'User Register Sucessfully', [
+            {text: 'OK', onPress: () => navigation.navigate('Login')},
+          ]);
+        })
+        .catch(error => {
+          if (error.code === 'auth/email-already-in-use') {
+            ToastMessage('Email address is already in use');
+          } else {
+            console.log(error);
+          }
+        });
+    }
   }
 
   return (

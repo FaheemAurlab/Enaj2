@@ -1,18 +1,39 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   Text,
   TouchableOpacity,
   TextInput,
-  Keyboard,
-  TouchableWithoutFeedback,
-  KeyboardAvoidingView,
   ScrollView,
 } from 'react-native';
+import userAuth from './checkAuth';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import SplashScreen from 'react-native-splash-screen';
+
 import styles from './style';
+
 const Login = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    const checkLoginStatus = async () => {
+      try {
+        const userCredentials = await AsyncStorage.getItem('saveItems');
+
+        if (userCredentials) {
+          navigation.navigate('DrawerScreen');
+        } else {
+          SplashScreen.hide();
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    checkLoginStatus();
+  }, []);
+
   return (
     <View style={styles.outerContainer}>
       <View style={styles.innerContainer}>
@@ -41,7 +62,7 @@ const Login = ({navigation}) => {
           <View>
             <TouchableOpacity
               style={styles.btn}
-              onPress={() => navigation.navigate('DrawerScreen')}>
+              onPress={() => userAuth(email, password, navigation)}>
               <Text style={styles.loginbtnText}>LOGIN</Text>
             </TouchableOpacity>
           </View>

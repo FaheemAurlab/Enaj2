@@ -5,7 +5,7 @@ import Login from '../auth/login';
 import Register from '../auth/register';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 
 const Stack = createNativeStackNavigator();
 

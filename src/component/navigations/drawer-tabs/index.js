@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Text, View, Image} from 'react-native';
 import Dashboard from '../../dashboard';
 import Controls from '../../deviceControls';
@@ -10,12 +10,19 @@ import {
   DrawerItemList,
   DrawerItem,
 } from '@react-navigation/drawer';
+import SplashScreen from 'react-native-splash-screen';
 
 import Icon from 'react-native-ionicons';
 
 const Drawer = createDrawerNavigator();
 
 const CustomDrawer = props => {
+  useEffect(() => {
+    setTimeout(() => {
+      SplashScreen.hide();
+    }, 300);
+  }, []);
+
   return (
     <View style={{flex: 1}}>
       <DrawerContentScrollView {...props}>
