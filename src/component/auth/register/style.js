@@ -15,10 +15,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 4,
-    marginTop: 160,
+    marginTop: 100,
     marginBottom: 50,
     padding: 10,
-    paddingTop: 80,
+    paddingTop: 40,
     borderRadius: 12,
   },
 
@@ -78,9 +78,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    // backgroundColor: 'red',
     height: 35,
-    marginTop: 120,
+    marginTop: 30,
   },
   footerTxt: {
     color: 'black',

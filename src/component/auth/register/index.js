@@ -5,53 +5,17 @@ import {
   TouchableOpacity,
   TextInput,
   ScrollView,
-  Alert,
 } from 'react-native';
-import ToastMessage from '../../ToastMessage';
+import registerUser from './checkAuth';
 
-import {firebaseAuth} from '../../../../environment/config';
-import {db} from '../../../../environment/config';
 import styles from './style';
 const Register = ({navigation}) => {
+  const [user, setUser] = useState('');
+  const [fName, setFname] = useState('');
+  const [lName, setLname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
-
-  function registerUser(email, pass) {
-    if (!email) {
-      ToastMessage('Email should not be empty');
-    } else if (!pass) {
-      ToastMessage('Password should not be empty');
-    } else if (!name) {
-      ToastMessage('Name should not be empty');
-    } else {
-      firebaseAuth
-        .createUserWithEmailAndPassword(email, pass)
-        .then(response => {
-          const uid = response.user.uid;
-          console.log(uid);
-          db.ref('users')
-            .child(`${uid}`)
-            .set({
-              Information: {
-                Email: email,
-                Password: pass,
-                Name: name,
-              },
-            });
-          Alert.alert('User Auth', 'User Register Sucessfully', [
-            {text: 'OK', onPress: () => navigation.navigate('Login')},
-          ]);
-        })
-        .catch(error => {
-          if (error.code === 'auth/email-already-in-use') {
-            ToastMessage('Email address is already in use');
-          } else {
-            console.log(error);
-          }
-        });
-    }
-  }
+  const [phoneNo, setPhoneNo] = useState('');
 
   return (
     <View style={styles.outerContainer}>
@@ -66,7 +30,7 @@ const Register = ({navigation}) => {
               style={styles.input}
               onChangeText={setEmail}
               value={email}
-              placeholder="Username or Email"
+              placeholder="Enter Your Email "
               placeholderTextColor={'#9A9696'}
             />
             <TextInput
@@ -75,20 +39,54 @@ const Register = ({navigation}) => {
               value={password}
               placeholder="Passsword"
               placeholderTextColor={'#9A9696'}
+              secureTextEntry={true}
             />
             <TextInput
               style={styles.input}
-              onChangeText={setName}
-              value={name}
-              placeholder="Full Name"
+              onChangeText={setUser}
+              value={user}
+              placeholder="Username"
               placeholderTextColor={'#9A9696'}
+            />
+            <TextInput
+              style={styles.input}
+              onChangeText={setFname}
+              value={fName}
+              placeholder="First Name"
+              placeholderTextColor={'#9A9696'}
+            />
+            <TextInput
+              style={styles.input}
+              onChangeText={setLname}
+              value={lName}
+              placeholder="Last Name"
+              placeholderTextColor={'#9A9696'}
+            />
+            <TextInput
+              style={styles.input}
+              onChangeText={setPhoneNo}
+              value={phoneNo}
+              placeholder="Your Phone Number"
+              placeholderTextColor={'#9A9696'}
+              keyboardType="numeric"
+              maxLength={11}
             />
           </View>
 
           <View>
             <TouchableOpacity
               style={styles.btn}
-              onPress={() => registerUser(email, password)}>
+              onPress={() => {
+                registerUser(
+                  email,
+                  password,
+                  user,
+                  fName,
+                  lName,
+                  phoneNo,
+                  navigation,
+                );
+              }}>
               <Text style={styles.loginbtnText}>Register</Text>
             </TouchableOpacity>
           </View>

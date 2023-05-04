@@ -47,7 +47,7 @@ const Login = ({navigation}) => {
               style={styles.input}
               onChangeText={setEmail}
               value={email}
-              placeholder="Username or Email"
+              placeholder="Enter Your Email"
               placeholderTextColor={'#9A9696'}
             />
             <TextInput
@@ -56,6 +56,7 @@ const Login = ({navigation}) => {
               value={password}
               placeholder="Passsword"
               placeholderTextColor={'#9A9696'}
+              secureTextEntry={true}
             />
           </View>
 

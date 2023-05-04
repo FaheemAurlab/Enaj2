@@ -1,6 +1,7 @@
 import {firebaseAuth} from '../../../../environment/config';
 import ToastMessage from '../../ToastMessage';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import validateEmail from '../validation';
 
 function userAuth(email, pass, navigation) {
   const storeData = async () => {
@@ -14,8 +15,12 @@ function userAuth(email, pass, navigation) {
     }
   };
 
+  const emailValidation = validateEmail(email);
+
   if (!email) {
     ToastMessage('Email should not be empty');
+  } else if (!emailValidation) {
+    ToastMessage('Invalid Email');
   } else if (!pass) {
     ToastMessage('Password should not be empty');
   } else {
