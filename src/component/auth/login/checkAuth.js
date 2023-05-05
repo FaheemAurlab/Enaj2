@@ -2,14 +2,22 @@ import {firebaseAuth} from '../../../../environment/config';
 import ToastMessage from '../../ToastMessage';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import validateEmail from '../validation';
+import {Alert} from 'react-native';
 
 function userAuth(email, pass, navigation) {
   const storeData = async () => {
     try {
-      const jsonValue = JSON.stringify({Email: email, Password: pass});
-      await AsyncStorage.setItem('saveItems', jsonValue);
-      console.log(jsonValue);
-      navigation.navigate('DrawerScreen');
+      const userStatus = firebaseAuth.currentUser;
+      if (userStatus) {
+        const lastLoginTime = userStatus.metadata.lastSignInTime;
+        const userId = userStatus.uid;
+        const jsonValue = JSON.stringify({
+          Id: userId,
+          loginTime: lastLoginTime,
+        });
+        await AsyncStorage.setItem('saveItems', jsonValue);
+        navigation.navigate('DrawerScreen');
+      }
     } catch (e) {
       console.log(e);
     }
@@ -34,6 +42,11 @@ function userAuth(email, pass, navigation) {
           ToastMessage('Invalid Password');
         } else if (error.code === 'auth/user-not-found') {
           ToastMessage('No user Found on this Email');
+        } else if (error.code === 'auth/network-request-failed') {
+          Alert.alert(
+            'Network Error',
+            'There was a problem with the network connection. Please check your internet connection and try again.',
+          );
         } else {
           console.log(error);
         }

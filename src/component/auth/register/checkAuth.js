@@ -56,6 +56,11 @@ function registerUser(
       .catch(error => {
         if (error.code === 'auth/email-already-in-use') {
           ToastMessage('Email address is already in use');
+        } else if (error.code === 'auth/network-request-failed') {
+          Alert.alert(
+            'Network Error',
+            'There was a problem with the network connection. Please check your internet connection and try again.',
+          );
         } else {
           console.log(error);
         }
