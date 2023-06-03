@@ -24,6 +24,8 @@ function userAuth(email, pass, navigation) {
     }
   };
 
+  // validation for email and password for not being empty
+
   const emailValidation = validateEmail(email);
 
   if (!email) {

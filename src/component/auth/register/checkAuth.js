@@ -15,6 +15,8 @@ function registerUser(
 ) {
   const emailValidation = validateEmail(email);
 
+  // validatations
+
   if (!email) {
     ToastMessage('Email should not be empty');
   } else if (!emailValidation) {

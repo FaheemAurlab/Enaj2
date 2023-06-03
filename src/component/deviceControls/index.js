@@ -2,6 +2,9 @@ import React from 'react';
 import {View, Text, Image} from 'react-native';
 import Switch from './toggle-switch';
 import styles from './style';
+
+// control components for on/off leds pumps supply and fans
+
 const Controls = () => {
   return (
     <View style={styles.outerContainer}>

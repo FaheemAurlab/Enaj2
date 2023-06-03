@@ -1,5 +1,6 @@
 import {ToastAndroid, Platform, Alert} from 'react-native';
 
+// Toast message
 const ToastMessage = message => {
   if (Platform.OS === 'android') {
     ToastAndroid.show(message, ToastAndroid.SHORT);

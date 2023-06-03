@@ -61,6 +61,8 @@ const Logout = ({navigation}) => {
         <Item name="Phone" value={phoneNo} />
         <Item name="Last Login" value={lastLogin} />
 
+        {/* // ask user for logout if yes then navigate to the login screen and making stack empty */}
+
         <View>
           <TouchableOpacity
             style={styles.btn}
