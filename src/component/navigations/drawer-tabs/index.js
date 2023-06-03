@@ -17,9 +17,12 @@ import Icon from 'react-native-ionicons';
 
 const Drawer = createDrawerNavigator();
 
+// drawer bar
+
 const CustomDrawer = props => {
   useEffect(() => {
     setTimeout(() => {
+      // hiding splash screen
       SplashScreen.hide();
     }, 300);
   }, []);
@@ -59,6 +62,7 @@ const CustomDrawer = props => {
           <Text style={styles.dashbordTxt}>Dashboard</Text>
         </View>
 
+        {/* // drawer custom items */}
         <DrawerItem
           label="Close Menu"
           icon={({focused, color, size}) => (

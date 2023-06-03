@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import validateEmail from '../validation';
 import {Alert} from 'react-native';
 
+// authenticate user if yes then store their creditentails in async storage and navigate to the login screen
 function userAuth(email, pass, navigation) {
   const storeData = async () => {
     try {
