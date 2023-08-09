@@ -2,14 +2,13 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   outerContainer: {
     flex: 1,
-    backgroundColor: '#8f53c5',
+    backgroundColor: '#8bca84',
   },
 
   innerContainer: {
     flex: 1,
     backgroundColor: 'white',
     margin: 20,
-    backgroundColor: 'white',
     shadowColor: '#000',
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.1,

@@ -22,7 +22,7 @@ const Register = ({navigation}) => {
       <View style={styles.innerContainer}>
         <ScrollView>
           <View>
-            <Text style={styles.MemberText}>Member Register</Text>
+            <Text style={styles.MemberText}>Sign Up</Text>
           </View>
 
           <View>

@@ -2,29 +2,24 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   outerContainer: {
     flex: 1,
-    backgroundColor: '#8f53c5',
+    backgroundColor: '#8bca84',
   },
 
   innerContainer: {
     flex: 1,
     backgroundColor: 'white',
     margin: 20,
-    backgroundColor: 'white',
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
     elevation: 4,
-    marginTop: 160,
-    marginBottom: 50,
+    marginTop: 80,
+    marginBottom: 30,
     padding: 10,
-    paddingTop: 80,
+    paddingTop: 50,
     borderRadius: 12,
   },
 
   MemberText: {
     fontSize: 24,
-    fontWeight: '500',
+    fontWeight: 'bold',
     color: 'black',
     alignSelf: 'center',
   },
@@ -84,6 +79,7 @@ const styles = StyleSheet.create({
   footerTxt: {
     color: 'black',
     fontWeight: '400',
+    
   },
 });
 

@@ -28,11 +28,6 @@ const Controls = () => {
           <Switch name="Led's" />
           <Switch name="Pump" />
         </View>
-
-        <View style={styles.controlContainer}>
-          <Switch name="Supply" />
-          <Switch name="Fan" />
-        </View>
       </View>
     </View>
   );

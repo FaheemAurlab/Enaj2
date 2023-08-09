@@ -4,6 +4,7 @@ import {
   Text,
   TouchableOpacity,
   TextInput,
+ 
   ScrollView,
 } from 'react-native';
 import userAuth from './checkAuth';
@@ -11,6 +12,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import SplashScreen from 'react-native-splash-screen';
 
 import styles from './style';
+import { Image } from 'react-native-svg';
 
 const Login = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -37,9 +39,10 @@ const Login = ({navigation}) => {
   return (
     <View style={styles.outerContainer}>
       <View style={styles.innerContainer}>
+     
         <ScrollView>
           <View>
-            <Text style={styles.MemberText}>Member Login</Text>
+            <Text style={styles.MemberText}>Login</Text>
           </View>
 
           <View>

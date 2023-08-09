@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   },
   value: {
     color: 'black',
-    fontSize: 24,
+    fontSize: 30,
     fontWeight: '500',
     alignSelf: 'flex-end',
   },

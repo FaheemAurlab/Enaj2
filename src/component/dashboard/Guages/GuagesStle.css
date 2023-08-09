@@ -1,0 +1,46 @@
+import { StyleSheet } from 'react-native';
+
+export default StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white',
+  },
+  gaugeWrapper: {
+    marginBottom: 20,
+    alignItems: 'center',
+  },
+  rectangleBackground: {
+    position: 'absolute',
+    alignContent: 'center',
+    width: '80%',
+    height: '85%',
+    backgroundColor: '#F5E9DB', // Adjust the color as needed
+    zIndex: -1,
+    borderRadius: 30,
+  },
+  typeText: {
+    fontSize: 20,
+    color: 'black',
+    fontWeight: '500',
+    fontFamily: 'bold',
+    textAlign: 'left',
+    marginBottom: 70,
+    marginTop: -50,
+  },
+  speaker: {},
+  iconwrapper: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    shadowColor: '#000',
+    marginLeft: 260,
+    marginBottom: 10,
+  },
+  icons: {
+    fontSize: 35,
+  },
+});
